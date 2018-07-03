@@ -7,5 +7,6 @@ target 'CircleOfFriends' do
 pod 'Masonry'
 pod 'AFNetworking'
 pod 'HYBMasonryAutoCellHeight'
-#pod 'UITableView+FDTemplateLayoutCell'
+pod 'UITableView+FDTemplateLayoutCell'
+pod 'JPFPSStatus'
 end

@@ -325,7 +325,6 @@
 		B53211D220E9DA4700339B89 /* CircleOfFriends */ = {
 			isa = PBXGroup;
 			children = (
-				B53211D320E9DA4700339B89 /* Controller */,
 				B53211D620E9DA4700339B89 /* Model */,
 				B53211D720E9DA4700339B89 /* View */,
 				B53211D820E9DA4700339B89 /* ViewModel */,
@@ -358,7 +357,6 @@
 				B53211E120E9F1D500339B89 /* LLCircleOfFriendsCell.h */,
 				B53211E220E9F1D500339B89 /* LLCircleOfFriendsCell.m */,
 				B53211E420E9F26C00339B89 /* LLCicleOfFriendsOriginalView.h */,
-				B53211E520E9F26C00339B89 /* LLCicleOfFriendsOriginalView.m */,
 				B532124F20EA087A00339B89 /* LLCicleOfFriendLikeView.h */,
 				B532125020EA087A00339B89 /* LLCicleOfFriendLikeView.m */,
 				B532128B20EA213D00339B89 /* LLCicleOfFriendCommentView.h */,
@@ -372,6 +370,7 @@
 				B532124C20E9FA7D00339B89 /* HMStatusPictureCell.m */,
 				B532128E20EB25D700339B89 /* LLOperationMenuView.h */,
 				B532128F20EB25D700339B89 /* LLOperationMenuView.m */,
+				B53211E520E9F26C00339B89 /* LLCicleOfFriendsOriginalView.m */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -381,6 +380,7 @@
 			children = (
 				B53211D920E9DA4700339B89 /* LLCircleOfFriendsViewModel.h */,
 				B53211DA20E9DA4700339B89 /* LLCircleOfFriendsViewModel.m */,
+				B53211D320E9DA4700339B89 /* Controller */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -755,12 +755,14 @@
 				"${SRCROOT}/Pods/Target Support Files/Pods-CircleOfFriends/Pods-CircleOfFriends-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/AFNetworking/AFNetworking.framework",
 				"${BUILT_PRODUCTS_DIR}/HYBMasonryAutoCellHeight/HYBMasonryAutoCellHeight.framework",
+				"${BUILT_PRODUCTS_DIR}/JPFPSStatus/JPFPSStatus.framework",
 				"${BUILT_PRODUCTS_DIR}/Masonry/Masonry.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/AFNetworking.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/HYBMasonryAutoCellHeight.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/JPFPSStatus.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Masonry.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;

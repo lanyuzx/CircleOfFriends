@@ -27,7 +27,7 @@ NSString *const kStatusPictureCellId = @"StatusPictureCellId";
 
 -(void)setPicArray:(NSArray *)picArray {
     _picArray = picArray;
-    
+     
     // 更新尺寸约束
     [self mas_updateConstraints:^(MASConstraintMaker *make) {
         make.size.mas_equalTo([self calcViewSize]);

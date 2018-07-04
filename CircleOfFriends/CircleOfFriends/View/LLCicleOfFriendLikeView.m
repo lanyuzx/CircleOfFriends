@@ -30,7 +30,7 @@
 @implementation LLCicleOfFriendLikeView
 
 - (void)setupWithLikeItemsArray:(NSArray *)likeItemsArray commentArray:(NSArray *)commentArray; {
-      [self layoutIfNeeded];
+     [self layoutIfNeeded];
     self.likeArray = likeItemsArray;
     self.commenArray = commentArray;
     self.likeBottomLine.hidden = !commentArray.count;

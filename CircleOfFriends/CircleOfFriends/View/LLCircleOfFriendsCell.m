@@ -57,29 +57,27 @@
         make.top.equalTo(self.originalView.mas_bottom).offset(5);
         //make.bottom.equalTo(self.contentView).priorityHigh();
     }];
-
-    [self.contentView mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.edges.equalTo(self);
-    }];
 }
 
 -(void)cicleOfFriendsOriginalViewShouldShowMoreDelegate {
+    
     [UIView animateWithDuration:0.0 animations:^{
-        [self.tableView reloadRowsAtIndexPaths:@[self.indexPath] withRowAnimation:UITableViewRowAnimationAutomatic];
+        [self.tableView reloadRowsAtIndexPaths:@[self.indexPath] withRowAnimation:UITableViewRowAnimationNone];
         
     }];
 }
 
 -(void)cicleOfFriendsOriginalViewLikeButtonClickDelegate {
     self.model.isOpening = false;
+    self.model.recalculateHeight = true;
     [UIView animateWithDuration:0.0 animations:^{
-        [self.tableView reloadRowsAtIndexPaths:@[self.indexPath] withRowAnimation:UITableViewRowAnimationAutomatic];
+        [self.tableView reloadRowsAtIndexPaths:@[self.indexPath] withRowAnimation:UITableViewRowAnimationNone];
         
     }];
 }
 
 -(void)cicleOfFriendsOriginalViewCommentButtonClickDelegate {
-    
+     self.model.recalculateHeight = true;
     if (self.commentButtonClickedOperation) {
         self.commentButtonClickedOperation(self);
     }

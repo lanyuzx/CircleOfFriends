@@ -124,6 +124,7 @@
 {
     self = [super initWithFrame:frame];
     if (self) {
+           self.translatesAutoresizingMaskIntoConstraints = false;
         [self setupUI];
     }
     return self;

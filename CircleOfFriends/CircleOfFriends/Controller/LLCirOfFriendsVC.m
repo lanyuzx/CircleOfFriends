@@ -75,14 +75,6 @@
         stateKey = @"unexpanded";
     }
 
-    BOOL recalculate = false;
-
-    if (model.commentItemsArray.count ||model.likeItemsArray.count) {
-        recalculate = true;
-    }else {
-        recalculate = false;
-    }
-
     CGFloat height = [LLCircleOfFriendsCell hyb_heightForTableView:tableView config:^(UITableViewCell *sourceCell) {
         LLCircleOfFriendsCell * cell = (LLCircleOfFriendsCell*)sourceCell;
         cell.model = model;
@@ -91,7 +83,7 @@
                  kHYBCacheStateKey : stateKey,
                  // 如果设置为YES，若有缓存，则更新缓存，否则直接计算并缓存
                  // 主要是对社交这种有动态评论等不同状态，高度也会不同的情况的处理
-                 kHYBRecalculateForStateKey : @(recalculate) // 标识不用重新更新
+                 kHYBRecalculateForStateKey : @(model.recalculateHeight) // 标识不用重新更新
                  };
     }];
     return height;

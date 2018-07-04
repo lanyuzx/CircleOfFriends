@@ -25,7 +25,7 @@
 
 @property (nonatomic, assign) BOOL shouldShowMoreButton;
 
-@property (nonatomic,assign) CGFloat cellHeight;
+@property (nonatomic,assign) BOOL recalculateHeight;
 @end
 
 

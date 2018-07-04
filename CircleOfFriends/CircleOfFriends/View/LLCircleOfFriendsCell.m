@@ -21,7 +21,6 @@
     self.originalView.model = model;
     
     [self.likeCommnetView setupWithLikeItemsArray:model.likeItemsArray commentArray:model.commentItemsArray];
-    
     self.hyb_lastViewInCell = self.likeCommnetView;
     self.hyb_bottomOffsetToCell = 5;
 }
@@ -56,6 +55,11 @@
     [self.likeCommnetView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.right.equalTo(self.contentView);
         make.top.equalTo(self.originalView.mas_bottom).offset(5);
+        //make.bottom.equalTo(self.contentView).priorityHigh();
+    }];
+
+    [self.contentView mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.edges.equalTo(self);
     }];
 }
 

@@ -14,9 +14,9 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "104B530DCAA36B8F029DC9EEC1606066"
-               BuildableName = "Pods_CircleOfFriends.framework"
-               BlueprintName = "Pods-CircleOfFriends"
+               BlueprintIdentifier = "2A214136592FEEEEF6EC9F9DE619C0D0"
+               BuildableName = "UITableView_FDTemplateLayoutCell.framework"
+               BlueprintName = "UITableView+FDTemplateLayoutCell"
                ReferencedContainer = "container:Pods.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
@@ -45,9 +45,9 @@
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "104B530DCAA36B8F029DC9EEC1606066"
-            BuildableName = "Pods_CircleOfFriends.framework"
-            BlueprintName = "Pods-CircleOfFriends"
+            BlueprintIdentifier = "2A214136592FEEEEF6EC9F9DE619C0D0"
+            BuildableName = "UITableView_FDTemplateLayoutCell.framework"
+            BlueprintName = "UITableView+FDTemplateLayoutCell"
             ReferencedContainer = "container:Pods.xcodeproj">
          </BuildableReference>
       </MacroExpansion>

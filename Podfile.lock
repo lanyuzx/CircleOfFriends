@@ -18,12 +18,14 @@ PODS:
     - Masonry (~> 0.6)
   - JPFPSStatus (0.1.1)
   - Masonry (0.6.4)
+  - "UITableView+FDTemplateLayoutCell (1.6)"
 
 DEPENDENCIES:
   - AFNetworking
   - HYBMasonryAutoCellHeight
   - JPFPSStatus
   - Masonry
+  - "UITableView+FDTemplateLayoutCell"
 
 SPEC REPOS:
   https://github.com/CocoaPods/Specs.git:
@@ -31,13 +33,15 @@ SPEC REPOS:
     - HYBMasonryAutoCellHeight
     - JPFPSStatus
     - Masonry
+    - "UITableView+FDTemplateLayoutCell"
 
 SPEC CHECKSUMS:
   AFNetworking: 8ac6017b94ea105479f7776e5288e48ae9c59bb4
   HYBMasonryAutoCellHeight: 9296583777080d32ba6257f55e52b7334dd481fc
   JPFPSStatus: 03f32aa3d4d7d0c5bf56f6f3e7cf8b7280a5f52c
   Masonry: 281802d04d787ea2973179ee8bcb50500579ede2
+  "UITableView+FDTemplateLayoutCell": 5c949b4a5059c404b442926c0e80f81d10a2d66f
 
-PODFILE CHECKSUM: 22874da5b957fc4c913dfbdf6d70c77df11ffb60
+PODFILE CHECKSUM: 26f16e3b07730c01ecfce5f1df0c56371f3d36e2
 
 COCOAPODS: 1.5.0

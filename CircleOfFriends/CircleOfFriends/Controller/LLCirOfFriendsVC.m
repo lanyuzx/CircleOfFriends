@@ -55,8 +55,15 @@
 }
 -(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
     
-   LLCircleOfFriendsModel * model = self.viewModel.itemModels[indexPath.row];
-    
+   
+
+  LLCircleOfFriendsModel * model = self.viewModel.itemModels[indexPath.row];
+//
+//    return [tableView fd_heightForCellWithIdentifier:@"LLCircleOfFriendsCell" cacheByIndexPath:indexPath configuration:^(id cell) {
+//        LLCircleOfFriendsCell * tempCell = (LLCircleOfFriendsCell*)cell;
+//            tempCell.model = model;
+//    }];
+
 //    return [LLCircleOfFriendsCell hyb_heightForTableView:tableView config:^(UITableViewCell *sourceCell) {
 //        LLCircleOfFriendsCell * cell = (LLCircleOfFriendsCell*)sourceCell;
 //        cell.model = model;
@@ -67,15 +74,15 @@
     } else {
         stateKey = @"unexpanded";
     }
-    
+
     BOOL recalculate = false;
-    
+
     if (model.commentItemsArray.count ||model.likeItemsArray.count) {
         recalculate = true;
     }else {
         recalculate = false;
     }
-    
+
     CGFloat height = [LLCircleOfFriendsCell hyb_heightForTableView:tableView config:^(UITableViewCell *sourceCell) {
         LLCircleOfFriendsCell * cell = (LLCircleOfFriendsCell*)sourceCell;
         cell.model = model;
@@ -174,6 +181,8 @@
         _tableView = [[UITableView alloc]initWithFrame:CGRectZero style:UITableViewStylePlain];
         _tableView.delegate = self;
         _tableView.dataSource = self;
+        _tableView.estimatedRowHeight = 400;
+        _tableView.rowHeight = UITableViewAutomaticDimension;
         _tableView.tableFooterView = [UIView new];
         [_tableView registerClass:[LLCircleOfFriendsCell class] forCellReuseIdentifier:@"LLCircleOfFriendsCell"];
     }

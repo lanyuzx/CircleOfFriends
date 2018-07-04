@@ -24,7 +24,6 @@
 
 @property (nonatomic,weak) MASConstraint * timeConstraint;
 
-@property (nonatomic,weak) MASConstraint * orignalConstraint;
 @end
 
 @implementation LLCicleOfFriendsOriginalView
@@ -44,7 +43,6 @@
     self.operationView.show = model.isOpening;
     self.pictureView.picArray = model.picNamesArray;
     [self.timeConstraint uninstall];
-    [self.orignalConstraint uninstall];
     if (model.picNamesArray.count) {
         [self.timeLable mas_makeConstraints:^(MASConstraintMaker *make) {
       self.timeConstraint =  make.top.equalTo(self.pictureView.mas_bottom).offset(5);
@@ -54,12 +52,6 @@
           self.timeConstraint =    make.top.equalTo(self.moreBtn.mas_bottom);
         }];
     }
-    
-    [self.orignalConstraint uninstall];
-    [self mas_makeConstraints:^(MASConstraintMaker *make) {
-        self.orignalConstraint =   make.bottom.equalTo(self.timeLable.mas_bottom);
-    }];
-   
 }
 
 - (instancetype)initWithFrame:(CGRect)frame
@@ -113,6 +105,7 @@
         make.height.mas_equalTo(20);
     }];
     
+    
     self.pictureView = [HMStatusPictureView new];
     [self addSubview:self.pictureView];
     [self.pictureView mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -149,7 +142,7 @@
     }];
     
     [self mas_makeConstraints:^(MASConstraintMaker *make) {
-      self.orignalConstraint =   make.bottom.equalTo(self.timeLable.mas_bottom);
+        make.bottom.equalTo(self.timeLable.mas_bottom);
     }];
 
 }

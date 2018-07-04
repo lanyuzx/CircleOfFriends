@@ -15,7 +15,7 @@
 #import <AFNetworking/UIImageView+AFNetworking.h>
 #import <Masonry/Masonry.h>
 #import <HYBMasonryAutoCellHeight/HYBMasonryAutoCellHeight-umbrella.h>
-//#import <UITableView_FDTemplateLayoutCell/UITableView+FDTemplateLayoutCell-umbrella.h>
+#import <UITableView_FDTemplateLayoutCell/UITableView+FDTemplateLayoutCell-umbrella.h>
 #import <JPFPSStatus/JPFPSStatus.h>
 #import "LLCircleOfFriendsConst.h"
 

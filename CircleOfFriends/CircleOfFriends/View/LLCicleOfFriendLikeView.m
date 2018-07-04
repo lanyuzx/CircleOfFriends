@@ -37,13 +37,11 @@
      [self.likeCommentConstraint uninstall];
     [self.commentConstraintTop uninstall];
     if (!likeItemsArray.count && !commentArray.count) { //没评论 没点赞
-        self.hidden = true;
         [self mas_makeConstraints:^(MASConstraintMaker *make) {
             self.likeCommentConstraint = make.bottom.equalTo(self.likeLabel.mas_top).offset(-5);
         }];
         return;
     }else if (likeItemsArray.count && !commentArray.count) { //没评论 有点赞
-        self.hidden = false;
         self.likeBottomLine.hidden = true;
          self.likeLabel.hidden = false;
         self.commentView.hidden = true;
@@ -51,7 +49,6 @@
             self.likeCommentConstraint = make.bottom.equalTo(self.likeLabel.mas_bottom).offset(1);
         }];
     }else if(!likeItemsArray.count && commentArray.count) { //有评论 没点赞
-        self.hidden = false;
         self.likeLabel.hidden = true;
         self.likeBottomLine.hidden = true;
         self.commentView.hidden = false;
@@ -63,7 +60,6 @@
         }];
         
     }else { //有评论 有点赞
-        self.hidden = false;
         self.likeLabel.hidden = false;
         self.likeBottomLine.hidden = false;
         self.commentView.hidden = false;
@@ -124,7 +120,6 @@
 {
     self = [super initWithFrame:frame];
     if (self) {
-           self.translatesAutoresizingMaskIntoConstraints = false;
         [self setupUI];
     }
     return self;

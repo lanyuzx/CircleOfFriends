@@ -111,10 +111,10 @@
     [self addSubview:self.pictureView];
     [self.pictureView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.equalTo(self.moreBtn);
-        make.size.mas_equalTo(CGSizeMake(90, 90));
+       // make.size.mas_equalTo(CGSizeMake(90, 90));
         make.top.equalTo(self.moreBtn.mas_bottom);
     }];
-    
+
     self.timeLable = [UILabel new];
     [self addSubview:self.timeLable];
     self.timeLable.text = @"一分钟前";
@@ -123,7 +123,7 @@
         make.left.equalTo(self.moreBtn);
        self.timeConstraint = make.top.equalTo(self.pictureView.mas_bottom).offset(5);
     }];
-    
+
     self.operationButton = [UIButton new];
     [self addSubview:self.operationButton];
     [self.operationButton setBackgroundImage:[UIImage imageNamed:@"AlbumOperateMore"] forState:UIControlStateNormal];
@@ -132,7 +132,7 @@
         make.right.equalTo(self).offset(-LLCellMargin);
         make.centerY.equalTo(self.timeLable);
     }];
-    
+
     self.operationView = [LLOperationMenuView new];
     [self setupOpreationViewButtonClick];
     [self addSubview:self.operationView];
@@ -141,7 +141,7 @@
         make.centerY.equalTo(self.operationButton);
         make.height.mas_equalTo(36);
     }];
-    
+
     [self mas_makeConstraints:^(MASConstraintMaker *make) {
         make.bottom.equalTo(self.timeLable.mas_bottom);
     }];

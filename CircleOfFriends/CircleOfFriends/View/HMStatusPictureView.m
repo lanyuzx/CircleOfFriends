@@ -59,13 +59,19 @@ NSString *const kStatusPictureCellId = @"StatusPictureCellId";
         CGFloat itemW = [self itemWidthForPicPathArray:_picArray];
         UIImage *image = [UIImage imageNamed:_picArray.firstObject];
         CGFloat itemH =  image.size.height / image.size.width * itemW;
-         layout.itemSize = CGSizeMake(itemW, itemH);
+        dispatch_async(dispatch_get_main_queue(), ^{
+             layout.itemSize = CGSizeMake(itemW, itemH);
+        });
+        
         return CGSizeMake(itemW, itemH);
     }
 
    
      CGFloat itemWH = (picWidth- (kPicViewColCount - 1) * (LLCellMargin + LLCellMargin)) / kPicViewColCount;
-     layout.itemSize = CGSizeMake(itemWH, itemWH);
+    dispatch_async(dispatch_get_main_queue(), ^{
+        layout.itemSize = CGSizeMake(itemWH, itemWH);
+    });
+    
     // 列数
     NSInteger col = count == 4 ? 2 : (count >= kPicViewColCount ? kPicViewColCount : count);
     // 行数

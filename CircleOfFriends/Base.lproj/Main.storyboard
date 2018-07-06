@@ -9,10 +9,10 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Cir Of FriendsVC-->
+        <!--Circle Of Friends ListVC-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="LLCirOfFriendsVC" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="LLCircleOfFriendsListVC" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="jYZ-yw-shd"/>
                         <viewControllerLayoutGuide type="bottom" id="jhn-HE-OmS"/>

@@ -2,24 +2,24 @@
 //  HMStatusPictureView.m
 //  Weibo11
 //
-//  Created by 刘凡 on 15/12/11.
+//  Created by 刘凡 on 15/12/11.b
 //  Copyright © 2015年 itheima. All rights reserved.
 //
 
 #import "HMStatusPictureView.h"
 #import "HMStatusPictureCell.h"
 
-#pragma mark - 常量定义
-/// 每列图片数量
+
+
+@interface HMStatusPictureView() <UICollectionViewDataSource>
+
+@end
+
 #define kPicViewColCount 3
 /// 图片间距
 #define kPicViewItemMargin 5
 /// 可重用标识符
 NSString *const kStatusPictureCellId = @"StatusPictureCellId";
-
-@interface HMStatusPictureView() <UICollectionViewDataSource>
-
-@end
 
 @implementation HMStatusPictureView
 

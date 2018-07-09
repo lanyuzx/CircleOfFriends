@@ -18,5 +18,5 @@
 #import <UITableView_FDTemplateLayoutCell/UITableView+FDTemplateLayoutCell-umbrella.h>
 #import <JPFPSStatus/JPFPSStatus.h>
 #import "LLCircleOfFriendsConst.h"
-#define kAvatar_Size 40
+#define kAvatar_Size 70
 #endif /* PrefixHeader_pch */

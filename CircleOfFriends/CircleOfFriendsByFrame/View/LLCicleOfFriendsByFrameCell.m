@@ -8,7 +8,8 @@
 
 #import "LLCicleOfFriendsByFrameCell.h"
 #import "LLCircleOfFriendsByFrameModel.h"
-#import "JGGView.h"
+#import "SDWeiXinPhotoContainerView.h"
+#import "LLCicleOfFriendCommentLikeByFrameView.h"
 //#import "LLStatusPictureByFrameView.h"
 @interface LLCicleOfFriendsByFrameCell()
 @property (nonatomic,strong) UIImageView * iconImageView;
@@ -16,7 +17,9 @@
 @property (nonatomic,strong) UILabel * contentLable;
 @property (nonatomic,strong) UIButton * moreBtn;
 //
-@property(nonatomic ,strong)JGGView * pictureView;
+@property(nonatomic ,strong)SDWeiXinPhotoContainerView * pictureView;
+
+@property(nonatomic ,strong)LLCicleOfFriendCommentLikeByFrameView * likeCommentView;
 @end
 @implementation LLCicleOfFriendsByFrameCell
 
@@ -27,13 +30,18 @@
     _iconImageView.image = [UIImage imageNamed:model.iconName];
     _nameLable.text = model.name;
     _contentLable.text = model.msgContent;
-    _pictureView.dataSource = model.picNamesArray;
+    _pictureView.picPathStringsArray = model.picNamesArray;
+  
     
     _iconImageView.frame = model.iconViewFrame;
     _nameLable.frame = model.nameLableFrame;
     _contentLable.frame = model.contenLableFrame;
     _moreBtn.frame = model.showMoreBtnFrame;
     _pictureView.frame = model.pictureFrame;
+    
+    _likeCommentView.frame = model.likeCommentsFrame;
+    
+     _likeCommentView.model = model;
 }
 
 - (void)awakeFromNib {
@@ -77,8 +85,12 @@
     //[self.moreBtn addTarget:self action:@selector(moreBtnClick) forControlEvents:UIControlEventTouchUpInside];
     self.moreBtn.titleLabel.font = [UIFont systemFontOfSize:13];
     
-    self.pictureView = [JGGView new];
+    self.pictureView = [SDWeiXinPhotoContainerView new];
     [self.contentView addSubview:self.pictureView];
+    
+    
+    self.likeCommentView = [LLCicleOfFriendCommentLikeByFrameView new];
+    [self.contentView addSubview:self.likeCommentView];
     
 }
 

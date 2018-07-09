@@ -40,19 +40,24 @@
     return self;
 }
 
+-(void)layoutSubviews {
+    [super layoutSubviews];
+    self.commentLable.frame = self.bounds;
+}
+
 -(void)setupUI {
     self.commentLable = [MLLinkLabel new];
     [self.contentView addSubview:self.commentLable];
     self.commentLable.numberOfLines = 0;
     self.commentLable.font = [UIFont systemFontOfSize:14];
     self.commentLable.textColor = [UIColor blackColor];
-    self.commentLable.preferredMaxLayoutWidth = SCREEN_WIDTH - 70;
-    [self.commentLable mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.left.equalTo(self.contentView);
-        make.right.equalTo(self.contentView);
-        make.top.equalTo(self.contentView);
-        //make.bottom.equalTo(self.contentView);
-    }];
+    self.commentLable.preferredMaxLayoutWidth = SCREEN_WIDTH - 80;
+//    [self.commentLable mas_makeConstraints:^(MASConstraintMaker *make) {
+//        make.left.equalTo(self.contentView).offset(3);
+//        make.right.equalTo(self.contentView).offset(-3);
+//        make.top.equalTo(self.contentView);
+//        make.bottom.equalTo(self.contentView);
+//    }];
     
 //    [self mas_makeConstraints:^(MASConstraintMaker *make) {
 //        make.bottom.equalTo(self.commentLable.mas_bottom);

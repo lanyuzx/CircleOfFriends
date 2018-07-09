@@ -32,6 +32,9 @@
 @property(nonatomic ,assign)CGRect contenLableFrame;
 @property(nonatomic ,assign)CGRect showMoreBtnFrame;
 @property(nonatomic ,assign)CGRect pictureFrame;
+
+@property(nonatomic ,assign)CGRect likeCommentsFrame;
+
 @property(nonatomic ,assign)CGFloat cellHeight;
 @end
 

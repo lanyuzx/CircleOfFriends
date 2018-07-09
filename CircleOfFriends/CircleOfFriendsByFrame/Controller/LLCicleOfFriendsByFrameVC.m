@@ -40,7 +40,7 @@
 }
 
 -(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
-    return self.viewModel.itemModels[indexPath.row].cellHeight;
+    return self.viewModel.itemModels[indexPath.row].cellHeight ;
 }
 
 -(UITableView *)tableView {

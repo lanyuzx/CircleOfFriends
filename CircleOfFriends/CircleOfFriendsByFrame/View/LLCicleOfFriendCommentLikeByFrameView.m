@@ -117,7 +117,7 @@
     _likeLabel.font = [UIFont systemFontOfSize:14];
     self.likeLabel.numberOfLines = 0;
     _likeLabel.linkTextAttributes = @{NSForegroundColorAttributeName : LLHighlightedColor};
-    _likeLabel.preferredMaxLayoutWidth = SCREEN_WIDTH - 80;
+    _likeLabel.preferredMaxLayoutWidth = SCREEN_WIDTH - 90;
     [self.likeCommentBgView addSubview:_likeLabel];
 //    [self.likeLabel mas_makeConstraints:^(MASConstraintMaker *make) {
 //        make.left.equalTo(self.likeCommentBgView).offset(5);
@@ -152,11 +152,16 @@
     LLCommentItemByFrameModel * model = self.commmentArray[indexPath.row];
     cell.commentString = model.attributedContent;
     //cell.textLabel.attributedText = model.attributedContent;
+    cell.contentView.backgroundColor = indexPath.row == 0 ? [UIColor redColor] :[UIColor orangeColor];
     return cell;
 }
 -(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
-    LLCommentItemByFrameModel * model = self.commmentArray[indexPath.row];
-    return model.attributedContentHeight;
+//    LLCommentItemByFrameModel * model = self.commmentArray[indexPath.row];
+//    return model.attributedContentHeight;
+    return [tableView fd_heightForCellWithIdentifier:@"LLCicleOfFriendCommentCell" cacheByIndexPath:indexPath configuration:^(LLCicleOfFriendCommentCell * cell) {
+        LLCommentItemByFrameModel * model = self.commmentArray[indexPath.row];
+        cell.commentString = model.attributedContent;
+    }];
 }
 
 - (NSMutableAttributedString *)generateAttributedStringWithLikeItemModel:(LLLikeItemByFrameModel *)model
@@ -172,12 +177,12 @@
 -(CGFloat)getCommentAttributedStringHeight {
     __block CGFloat totalHeight = 0.0;
     [self.commmentArray enumerateObjectsUsingBlock:^(LLCommentItemByFrameModel *  _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
-        if (!obj.attributedContent) {
+        //if (!obj.attributedContent) {
             obj.attributedContent = [self generateAttributedStringWithCommentItemModel:obj];
-        }
+        //}
         NSDictionary *dic = @{NSFontAttributeName:[UIFont systemFontOfSize:14],
                               };
-        CGFloat attributedContentHeight = [[obj.attributedContent string] boundingRectWithSize:CGSizeMake(SCREEN_WIDTH - 80,MAXFLOAT) options:NSStringDrawingUsesLineFragmentOrigin attributes:dic context:nil].size.height ;
+        CGFloat attributedContentHeight = [[obj.attributedContent string] boundingRectWithSize:CGSizeMake(SCREEN_WIDTH - 80,MAXFLOAT) options:NSStringDrawingUsesLineFragmentOrigin attributes:dic context:nil].size.height +6 ;
             obj.attributedContentHeight = attributedContentHeight;
         
         totalHeight += obj.attributedContentHeight;

@@ -88,8 +88,12 @@
     }];
     return height;
 }
+
 - (void)scrollViewWillBeginDragging:(UIScrollView *)scrollView
 {
+    //NSArray * cell = _tableView.visibleCells;
+    
+    //[_tableView reloadRowsAtIndexPaths:_tableView.indexPathsForVisibleRows withRowAnimation:UITableViewRowAnimationNone];
     [_textField resignFirstResponder];
 }
 

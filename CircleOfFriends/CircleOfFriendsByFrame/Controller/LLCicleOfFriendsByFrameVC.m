@@ -35,6 +35,8 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
     LLCicleOfFriendsByFrameCell * cell = [tableView dequeueReusableCellWithIdentifier:@"LLCicleOfFriendsByFrameCell"];
+    cell.tableView = tableView;
+    cell.indexPath = indexPath;
     cell.model = _viewModel.itemModels[indexPath.row];
     return cell;
 }

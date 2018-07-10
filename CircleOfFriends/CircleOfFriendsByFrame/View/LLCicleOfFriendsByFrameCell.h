@@ -10,4 +10,6 @@
 @class LLCircleOfFriendsByFrameModel;
 @interface LLCicleOfFriendsByFrameCell : UITableViewCell
 @property(nonatomic ,strong)LLCircleOfFriendsByFrameModel * model;
+@property(nonatomic ,weak)UITableView * tableView;
+@property(nonatomic ,weak)NSIndexPath * indexPath;
 @end

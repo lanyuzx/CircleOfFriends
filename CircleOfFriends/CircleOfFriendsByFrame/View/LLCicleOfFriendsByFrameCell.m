@@ -23,6 +23,8 @@
 @end
 @implementation LLCicleOfFriendsByFrameCell
 
+CGFloat maxContentLabelHeight;
+
 -(void)setModel:(LLCircleOfFriendsByFrameModel *)model {
     _model = model;
     //此处调用防止cell先走 行高后走
@@ -73,16 +75,21 @@
     [self addSubview:self.contentLable];
     self.contentLable.font = [UIFont systemFontOfSize:14];
     self.contentLable.numberOfLines = 0;
+    self.contentLable.lineBreakMode = NSLineBreakByCharWrapping;
+    if (maxContentLabelHeight==0) {
+         maxContentLabelHeight = _contentLable.font.lineHeight*2;
+    }
+   
 
     self.moreBtn = [UIButton new];
     [self addSubview:self.moreBtn];
-    self.moreBtn.backgroundColor = [UIColor redColor];
     [self.moreBtn setTitle:@"全文" forState:UIControlStateNormal];
     [self.moreBtn setTitle:@"收起" forState:UIControlStateSelected];
     self.moreBtn.titleLabel.textAlignment = NSTextAlignmentLeft;
+    self.moreBtn.titleEdgeInsets = UIEdgeInsetsMake(0, -10, 0, 0);
     [self.moreBtn setTitleColor:LLHighlightedColor forState:UIControlStateNormal];
     [self.moreBtn setTitleColor:LLHighlightedColor forState:UIControlStateSelected];
-    //[self.moreBtn addTarget:self action:@selector(moreBtnClick) forControlEvents:UIControlEventTouchUpInside];
+    [self.moreBtn addTarget:self action:@selector(moreBtnClick) forControlEvents:UIControlEventTouchUpInside];
     self.moreBtn.titleLabel.font = [UIFont systemFontOfSize:13];
     
     self.pictureView = [SDWeiXinPhotoContainerView new];
@@ -92,6 +99,11 @@
     self.likeCommentView = [LLCicleOfFriendCommentLikeByFrameView new];
     [self.contentView addSubview:self.likeCommentView];
     
+}
+
+-(void)moreBtnClick {
+    _model.folding = !_model.folding;
+    [_tableView reloadRowsAtIndexPaths:@[_indexPath] withRowAnimation:UITableViewRowAnimationNone];
 }
 
 @end

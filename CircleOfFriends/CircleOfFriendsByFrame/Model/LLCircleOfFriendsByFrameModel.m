@@ -14,18 +14,34 @@ static const CGFloat nameLableHeight = 20;
 
 static const CGFloat LLCellWidthMargin = 5;
 
+extern const CGFloat maxContentLabelHeight ;
+
+
+
 -(CGFloat)cellHeight {
     
-    if (_cellHeight) {
-        return _cellHeight;
-    }
+//    if (!self.folding) {
+//        if (_cellHeight) {
+//            return _cellHeight;
+//        }
+//    }
+    
     _iconViewFrame = CGRectMake(LLCellMargin, LLCellMargin, 40, 40);
     
     CGFloat nameLableWidth = [self textHeightWithString:self.name attributes:@{NSFontAttributeName:[UIFont systemFontOfSize:15]} withSize:CGSizeMake(MAXFLOAT, nameLableHeight)].width;
     _nameLableFrame = CGRectMake(CGRectGetMaxX(_iconViewFrame)+LLCellMargin, LLCellMargin, nameLableWidth, nameLableHeight);
     
-    CGFloat contentLableHeight = [self textHeightWithString:self.msgContent attributes:@{NSFontAttributeName:[UIFont systemFontOfSize:14]} withSize:CGSizeMake(SCREEN_WIDTH - 70, MAXFLOAT)].height;
+    CGFloat contentLableHeight ;
+    if (_folding) {
+       contentLableHeight =  [self textHeightWithString:self.msgContent attributes:@{NSFontAttributeName:[UIFont systemFontOfSize:14]} withSize:CGSizeMake(SCREEN_WIDTH - 70, MAXFLOAT)].height;
+    }else {
+        contentLableHeight = maxContentLabelHeight;
+    }
     
+    //if (!self.shouldShowMoreButton) {
+    
+    
+   // }
     _contenLableFrame = CGRectMake(CGRectGetMinX(_nameLableFrame), CGRectGetMaxY(_nameLableFrame) +LLCellWidthMargin, SCREEN_WIDTH - 70, contentLableHeight);
     
     _showMoreBtnFrame = CGRectMake(CGRectGetMinX(_nameLableFrame), CGRectGetMaxY(_contenLableFrame), 35, 25);
@@ -63,12 +79,25 @@ static const CGFloat LLCellWidthMargin = 5;
     
 }
 
+-(BOOL)shouldShowMoreButton {
+      CGFloat contentW = [UIScreen mainScreen].bounds.size.width - 70;
+        CGRect textRect = [self.msgContent boundingRectWithSize:CGSizeMake(contentW, MAXFLOAT) options:NSStringDrawingUsesLineFragmentOrigin | NSStringDrawingUsesFontLeading attributes:@{NSFontAttributeName : [UIFont systemFontOfSize:14]} context:nil];
+        if (textRect.size.height > maxContentLabelHeight) {
+            _shouldShowMoreButton = YES;
+        } else {
+            _shouldShowMoreButton = NO;
+        }
+  
+    
+    return _msgContent;
+}
+
 -(CGFloat)getLikeAttributedStringHeight {
       NSMutableAttributedString * likeAttributedString = [self getLikeAttributedString];
     if (!likeAttributedString) {
         return 0;
     }
-     CGSize likeFrame = [self textHeightWithString:[likeAttributedString string] attributes:@{NSFontAttributeName:[UIFont systemFontOfSize:14]} withSize:CGSizeMake(SCREEN_WIDTH - 80 , MAXFLOAT)];
+     CGSize likeFrame = [self textHeightWithString:[likeAttributedString string] attributes:@{NSFontAttributeName:[UIFont systemFontOfSize:14]} withSize:CGSizeMake(SCREEN_WIDTH - 90 , MAXFLOAT)];
     
     return likeFrame.height+LLCellMargin;
 }
@@ -81,7 +110,7 @@ static const CGFloat LLCellWidthMargin = 5;
         }
         NSDictionary *dic = @{NSFontAttributeName:[UIFont systemFontOfSize:14],
                               };
-        CGFloat attributedContentHeight = [[obj.attributedContent string] boundingRectWithSize:CGSizeMake(SCREEN_WIDTH - 80,MAXFLOAT) options:NSStringDrawingUsesLineFragmentOrigin attributes:dic context:nil].size.height +LLCellMargin;
+        CGFloat attributedContentHeight = [[obj.attributedContent string] boundingRectWithSize:CGSizeMake(SCREEN_WIDTH - 90,MAXFLOAT) options:NSStringDrawingUsesLineFragmentOrigin|NSStringDrawingUsesFontLeading attributes:dic context:nil].size.height;
             obj.attributedContentHeight = attributedContentHeight;
       
         totalHeight += obj.attributedContentHeight;

@@ -42,7 +42,8 @@
 
 -(void)layoutSubviews {
     [super layoutSubviews];
-    self.commentLable.frame = self.bounds;
+    //self.commentLable.frame = self.bounds;
+    //[self layoutIfNeeded];
 }
 
 -(void)setupUI {
@@ -52,15 +53,15 @@
     self.commentLable.font = [UIFont systemFontOfSize:14];
     self.commentLable.textColor = [UIColor blackColor];
     self.commentLable.preferredMaxLayoutWidth = SCREEN_WIDTH - 80;
-//    [self.commentLable mas_makeConstraints:^(MASConstraintMaker *make) {
-//        make.left.equalTo(self.contentView).offset(3);
-//        make.right.equalTo(self.contentView).offset(-3);
-//        make.top.equalTo(self.contentView);
-//        make.bottom.equalTo(self.contentView);
-//    }];
+    [self.commentLable mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.left.equalTo(self.contentView).offset(3);
+        make.right.equalTo(self.contentView).offset(-3);
+        make.top.equalTo(self.contentView);
+        make.bottom.equalTo(self.contentView).offset(-3);
+    }];
     
-//    [self mas_makeConstraints:^(MASConstraintMaker *make) {
-//        make.bottom.equalTo(self.commentLable.mas_bottom);
+//    [self.contentView mas_makeConstraints:^(MASConstraintMaker *make) {
+//        make.edges.equalTo(self);
 //    }];
 }
 @end

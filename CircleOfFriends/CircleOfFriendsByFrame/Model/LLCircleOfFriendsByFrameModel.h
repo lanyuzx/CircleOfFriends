@@ -25,6 +25,8 @@
 
 @property (nonatomic, assign) BOOL shouldShowMoreButton;
 
+@property (nonatomic, assign) BOOL folding;
+
 @property (nonatomic,assign) BOOL recalculateHeight;
 
 @property(nonatomic ,assign)CGRect iconViewFrame;
